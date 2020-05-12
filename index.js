@@ -8,15 +8,15 @@ const log = require('hexo-log')({ 'debug': false, 'slient': false });
 const path = require('path');
 
 const defaultConfig = {
-  'abstract': 'Here\'s something encrypted, password is required to continue reading.',
-  'message': 'Hey, password is required here.',
+  'abstract': 'Password required to continue reading',
+  'message': 'Password required',
   'template': fs.readFileSync(path.resolve(__dirname, './lib/template.html')).toString(),
-  'wrong_pass_message': 'Oh, this is an invalid password. Check and try again, please.',
-  'wrong_hash_message': 'OOPS, these decrypted content may changed, but you can still have a look.',
+  'wrong_pass_message': 'Invalid password. Check and try again, please.',
+  'wrong_hash_message': 'This decrypted content may changed.',
 };
 
-const keySalt = textToArray('hexo-blog-encrypt的作者们都是大帅比!');
-const ivSalt = textToArray('hexo-blog-encrypt是地表最强Hexo加密插件!');
+const keySalt = textToArray('hz!kkle753');
+const ivSalt = textToArray('hz!kxnwx53');
 
 hexo.extend.filter.register('after_post_render', (data) => {
   const tagEncryptPairs = [];
